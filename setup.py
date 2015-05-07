@@ -27,7 +27,10 @@ KEYWORDS = (
 
 if __name__ == '__main__':
     setup(
-        name="Orange3 Example Add-on",
+        name="Orange3-Example-Add-On",
+        description='',
+        author='',
+        author_email='',
         packages=find_packages(),
         install_requires=[
             'Orange',
