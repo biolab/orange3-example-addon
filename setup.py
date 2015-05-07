@@ -29,11 +29,9 @@ if __name__ == '__main__':
     setup(
         name="Orange3 Example Add-on",
         packages=find_packages(),
-        package_data={
-            'orangecontrib.example': ['tutorials/*.ows'],
-            'orangecontrib.example.widgets': ['icons/*'],
-        },
-        install_requires=['Orange'],
+        install_requires=[
+            'Orange',
+        ],
         entry_points=ENTRY_POINTS,
         keywords=KEYWORDS,
         namespace_packages=['orangecontrib'],
