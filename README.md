@@ -17,6 +17,12 @@ Python's site-packages directory), run
 
     python setup.py develop
 
+Documentation / widget help can be built by running
+
+    make html htmlhelp
+
+from the doc directory.
+
 Usage
 -----
 

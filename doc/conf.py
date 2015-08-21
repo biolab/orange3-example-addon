@@ -40,7 +40,8 @@ templates_path = ['templates']
 # The suffix(es) of source filenames.
 # You can specify multiple suffix as a list of string:
 # source_suffix = ['.rst', '.md']
-source_suffix = '.md'
+source_suffix = ['.rst', '.md']
+source_parsers = {".md": "recommonmark.parser.CommonMarkParser"}
 
 # The encoding of source files.
 #source_encoding = 'utf-8-sig'
