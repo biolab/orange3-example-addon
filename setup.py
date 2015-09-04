@@ -17,6 +17,10 @@ ENTRY_POINTS = {
         #    orangecontrib/example/widgets/__init__.py
         'My Category = orangecontrib.example.widgets',
     ),
+
+    # Register widget help
+    "orange.canvas.help": (
+        'html-index = orangecontrib.example.widgets:WIDGET_HELP_PATH',)
 }
 
 KEYWORDS = (
