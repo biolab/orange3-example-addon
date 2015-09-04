@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-from setuptools import setup
+from setuptools import setup, find_packages
 
 ENTRY_POINTS = {
     # Entry point used to specify packages containing tutorials accessible
@@ -31,16 +31,14 @@ KEYWORDS = (
 
 if __name__ == '__main__':
     setup(
-        name="Orange3 Example Add-on",
-        packages=['orangecontrib',
-                  'orangecontrib.example',
-                  'orangecontrib.example.tutorials',
-                  'orangecontrib.example.widgets'],
-        package_data={
-            'orangecontrib.example': ['tutorials/*.ows'],
-            'orangecontrib.example.widgets': ['icons/*'],
-        },
-        install_requires=['Orange'],
+        name="Orange3-Example-Add-On",
+        description='',
+        author='',
+        author_email='',
+        packages=find_packages(),
+        install_requires=[
+            'Orange',
+        ],
         entry_points=ENTRY_POINTS,
         keywords=KEYWORDS,
         namespace_packages=['orangecontrib'],
