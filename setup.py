@@ -57,6 +57,7 @@ ENTRY_POINTS = {
 
 NAMESPACE_PACKAGES = ["orangecontrib"]
 
+TEST_SUITE = "orangecontrib.example.tests.suite"
 
 if __name__ == '__main__':
     setup(
@@ -71,6 +72,7 @@ if __name__ == '__main__':
         entry_points=ENTRY_POINTS,
         keywords=KEYWORDS,
         namespace_packages=NAMESPACE_PACKAGES,
+        test_suite=TEST_SUITE,
         include_package_data=True,
         zip_safe=False,
     )
