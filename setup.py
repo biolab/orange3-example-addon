@@ -26,7 +26,7 @@ PACKAGE_DATA = {
 }
 
 INSTALL_REQUIRES = [
-    'Orange',
+    'Orange3',
 ]
 
 ENTRY_POINTS = {
