@@ -5,7 +5,7 @@ sudo: false
 
 matrix:
   include:
-    - python: '3.4'
+    - python: '3.5'
       env: ORANGE="3.5.0"
 
     - python: '3.6'
@@ -28,7 +28,10 @@ addons:
 install:
     # Update pip to be able to install wheel dependencies
     - pip install -U pip wheel
+    - pip install sip pyqt5  # needs python 3.5+
     - source $TRAVIS_BUILD_DIR/.travis/install_orange.sh
     - pip install -e .
 
-script: python setup.py test
+script:
+    - export XVFBARGS="-screen 0 1280x1024x24"
+    - catchsegv xvfb-run -a -s "$XVFBARGS" python setup.py test
