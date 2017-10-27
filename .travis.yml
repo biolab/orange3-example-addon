@@ -2,8 +2,17 @@ language: python
 
 sudo: false
 
-python:
-    - "3.4"
+
+matrix:
+  include:
+    - python: '3.4'
+      env: ORANGE="3.5.0"
+
+    - python: '3.6'
+      env: ORANGE="release"
+
+    - python: '3.6'
+      env: ORANGE="master"
 
 cache:
     apt: true
@@ -19,6 +28,7 @@ addons:
 install:
     # Update pip to be able to install wheel dependencies
     - pip install -U pip wheel
+    - source $TRAVIS_BUILD_DIR/.travis/install_orange.sh
     - pip install -e .
 
 script: python setup.py test
