@@ -1,6 +1,5 @@
-from PyQt4 import QtCore, QtGui
+from AnyQt import QtCore, QtGui
 from Orange.widgets.widget import OWWidget
-from Orange.widgets import gui
 
 
 class MyWidget(OWWidget):
