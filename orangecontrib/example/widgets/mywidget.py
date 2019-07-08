@@ -1,4 +1,4 @@
-from AnyQt import QtCore, QtGui
+from AnyQt.QtWidgets import QLabel
 from Orange.widgets.widget import OWWidget
 
 
@@ -12,6 +12,10 @@ class MyWidget(OWWidget):
     def __init__(self):
         super().__init__()
 
-        label = QtGui.QLabel("Hello, World!")
-        self.controlArea.layout().addWidget(
-            label, QtCore.Qt.AlignCenter | QtCore.Qt.AlignVCenter)
+        label = QLabel("Hello, World!")
+        self.controlArea.layout().addWidget(label)
+
+
+if __name__ == "__main__":
+    from Orange.widgets.utils.widgetpreview import WidgetPreview  # since Orange 3.20.0
+    WidgetPreview(MyWidget).run()
