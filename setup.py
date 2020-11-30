@@ -9,8 +9,13 @@ NAME = "Orange3 Example Add-on"
 
 VERSION = "0.0.3"
 
+AUTHOR = 'Bioinformatics Laboratory, FRI UL'
+AUTHOR_EMAIL = 'contact@orange.biolab.si'
+
+URL = 'http://orange.biolab.si/download'
 DESCRIPTION = "Add-on containing example widgets"
-LONG_DESCRIPTION = open(path.join(path.dirname(__file__), 'README.md')).read()
+LONG_DESCRIPTION = open(path.join(path.dirname(__file__), 'README.pypi'),
+                        'r', encoding='utf-8').read()
 
 LICENSE = "BSD"
 
@@ -80,13 +85,18 @@ def include_documentation(local_dir, install_dir):
                           [path.join(dirpath, f) for f in files]))
     DATA_FILES.extend(doc_files)
 
+
 if __name__ == '__main__':
-    include_documentation('doc/build/html', 'help/orange3-example')
+    include_documentation('doc/_build/html', 'help/orange3-example')
     setup(
         name=NAME,
         version=VERSION,
+        author=AUTHOR,
+        author_email=AUTHOR_EMAIL,
+        url=URL,
         description=DESCRIPTION,
         long_description=LONG_DESCRIPTION,
+        long_description_content_type='text/markdown',
         license=LICENSE,
         packages=PACKAGES,
         package_data=PACKAGE_DATA,
@@ -95,7 +105,5 @@ if __name__ == '__main__':
         entry_points=ENTRY_POINTS,
         keywords=KEYWORDS,
         namespace_packages=NAMESPACE_PACKAGES,
-        test_suite=TEST_SUITE,
-        include_package_data=True,
         zip_safe=False,
     )

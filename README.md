@@ -8,7 +8,7 @@ register it with Orange and add a new workflow with this widget to example tutor
 Installation
 ------------
 
-To install the add-on, run
+To install the add-on from source run
 
     pip install .
 
@@ -28,6 +28,10 @@ Usage
 
 After the installation, the widget from this add-on is registered with Orange. To run Orange from the terminal,
 use
+
+    orange-canvas
+
+or
 
     python -m Orange.canvas
 
