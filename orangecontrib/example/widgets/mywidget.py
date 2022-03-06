@@ -1,5 +1,7 @@
-from AnyQt.QtWidgets import QLabel
-from Orange.widgets.widget import OWWidget
+from Orange.data import Table
+from Orange.widgets import gui
+from Orange.widgets.settings import Setting
+from Orange.widgets.widget import OWWidget, Input, Output, Msg
 
 
 class MyWidget(OWWidget):
@@ -8,7 +10,7 @@ class MyWidget(OWWidget):
     name = "Hello World"
     description = "Tell me more about yourself."
     icon = "icons/mywidget.svg"
-    priority = 100 # where in the widget order it will appear
+    priority = 100  # where in the widget order it will appear
     keywords = ["widget", "data"]
     want_main_area = False
     resizing_enabled = False
@@ -17,25 +19,22 @@ class MyWidget(OWWidget):
     
     class Inputs:
         # specify the name of the input and the type
-        data = Input("Data", Orange.data.Table)
+        data = Input("Data", Table)
 
     class Outputs:
         # if there are two or more outputs, default=True marks the default output
-        data = Output("Data", Orange.data.Table, default=True)
+        data = Output("Data", Table, default=True)
     
     # same class can be initiated for Error and Information messages
-    class Warning(widget.OWWidget.Warning):
-        warning = widget.Msg("My warning!")
+    class Warning(OWWidget.Warning):
+        warning = Msg("My warning!")
 
     def __init__(self):
         super().__init__()
         self.data = None
         
         self.label_box = gui.lineEdit(
-            self.controlArea, self, "label", box="Text",
-            placeholderText="",
-            orientation=Qt.Horizontal, callback=self.commit)
-        self.controlArea.layout().addWidget(self.label_box)
+            self.controlArea, self, "label", box="Text", callback=self.commit)
         
     @Inputs.data
     def set_data(self, data):
